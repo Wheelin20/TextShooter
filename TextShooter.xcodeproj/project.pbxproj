@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A70802021C86548F009FDEA3 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70802011C86548F009FDEA3 /* PlayerNode.swift */; };
 		A7ACD3601C860B5800B64E33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACD35F1C860B5800B64E33 /* AppDelegate.swift */; };
 		A7ACD3621C860B5800B64E33 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7ACD3611C860B5800B64E33 /* GameScene.sks */; };
 		A7ACD3641C860B5800B64E33 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACD3631C860B5800B64E33 /* GameScene.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A70802011C86548F009FDEA3 /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		A7ACD35C1C860B5800B64E33 /* TextShooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextShooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7ACD35F1C860B5800B64E33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7ACD3611C860B5800B64E33 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				A7ACD36A1C860B5800B64E33 /* Assets.xcassets */,
 				A7ACD36C1C860B5800B64E33 /* LaunchScreen.storyboard */,
 				A7ACD36F1C860B5800B64E33 /* Info.plist */,
+				A70802011C86548F009FDEA3 /* PlayerNode.swift */,
 			);
 			path = TextShooter;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			files = (
 				A7ACD3641C860B5800B64E33 /* GameScene.swift in Sources */,
 				A7ACD3661C860B5800B64E33 /* GameViewController.swift in Sources */,
+				A70802021C86548F009FDEA3 /* PlayerNode.swift in Sources */,
 				A7ACD3601C860B5800B64E33 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +501,7 @@
 				A7ACD38A1C860B5800B64E33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7ACD38B1C860B5800B64E33 /* Build configuration list for PBXNativeTarget "TextShooterTests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +510,7 @@
 				A7ACD38D1C860B5800B64E33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7ACD38E1C860B5800B64E33 /* Build configuration list for PBXNativeTarget "TextShooterUITests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +519,7 @@
 				A7ACD3901C860B5800B64E33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
