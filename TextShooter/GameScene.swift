@@ -8,8 +8,10 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
+class GameScene: SKScene
+{
+    override func didMoveToView(view: SKView)
+    {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Hello, World!"
@@ -19,7 +21,8 @@ class GameScene: SKScene {
         self.addChild(myLabel)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+    {
        /* Called when a touch begins */
         
         for touch in touches {
@@ -39,7 +42,8 @@ class GameScene: SKScene {
         }
     }
    
-    override func update(currentTime: CFTimeInterval) {
+    override func update(currentTime: CFTimeInterval)
+    {
         /* Called before each frame is rendered */
     }
 }
