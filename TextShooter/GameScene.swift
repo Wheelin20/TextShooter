@@ -15,6 +15,7 @@ class GameScene: SKScene
     private var finished = false
     private let playerNode:PlayerNode = PlayerNode()
     private let enemies = SKNode()
+    private let playerBullets = SKNode()
     
     class func scene(size:CGSize, levelNumber:UInt) -> GameScene
     {
@@ -59,6 +60,8 @@ class GameScene: SKScene
         
         addChild(enemies)
         spawnEnemies()
+        
+        addChild(playerBullets)
     }
 
     required init?(coder aDecoder: NSCoder)
@@ -85,12 +88,37 @@ class GameScene: SKScene
                 let target = CGPointMake(location.x, playerNode.position.y)
                 playerNode.moveToward(target)
             }
+            else
+            {
+                let bullet = BulletNode.bullet(from: playerNode.position, toward: location)
+                playerBullets.addChild(bullet)
+            }
         }
     }
     
     override func update(currentTime: CFTimeInterval)
     {
-        /* Called before each frame is rendered */
+        updateBullets()
+    }
+    
+    private func updateBullets()
+    {
+        var bulletsToRemove:[BulletNode] = []
+        for bullet in playerBullets.children as! [BulletNode]
+        {
+            // Remove any bullets that have moved off-screen
+            if !CGRectContainsPoint(frame, bullet.position)
+            {
+                // Mark bullet for removal
+                bulletsToRemove.append(bullet)
+                continue
+            }
+            
+            // Apply thrust to remaining bullets
+            bullet.applyRecurringForce()
+        }
+        
+        playerBullets.removeChildrenInArray(bulletsToRemove)
     }
     
     private func spawnEnemies()
