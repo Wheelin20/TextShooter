@@ -34,4 +34,26 @@ class PlayerNode: SKNode
         label.name = "label"
         self.addChild(label)
     }
+    
+    func moveToward(target:CGPoint)
+    {
+        removeActionForKey("movement")
+        removeActionForKey("wobbling")
+        
+        let distance = Geometry.pointDistance(position, p2: target)
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let duration = NSTimeInterval(2 * distance / screenWidth)
+        
+        runAction(SKAction.moveTo(target, duration: duration), withKey:"movement")
+        
+        let wobbleTime = 0.3
+        let halfWobbleTime = wobbleTime / 2
+        let wobbling = SKAction.sequence([
+            SKAction.scaleXTo(0.6, duration: halfWobbleTime),
+            SKAction.scaleXTo(1.0, duration: halfWobbleTime)
+        ])
+        let wobbleCount = Int(duration/wobbleTime)
+        
+        runAction(SKAction.repeatAction(wobbling, count:wobbleCount), withKey:"wobbling")
+    }
 }

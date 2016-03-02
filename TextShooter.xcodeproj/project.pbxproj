@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A70802021C86548F009FDEA3 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70802011C86548F009FDEA3 /* PlayerNode.swift */; };
+		A70802041C865CDF009FDEA3 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70802031C865CDF009FDEA3 /* Geometry.swift */; };
 		A7ACD3601C860B5800B64E33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACD35F1C860B5800B64E33 /* AppDelegate.swift */; };
 		A7ACD3621C860B5800B64E33 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A7ACD3611C860B5800B64E33 /* GameScene.sks */; };
 		A7ACD3641C860B5800B64E33 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACD3631C860B5800B64E33 /* GameScene.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		A70802011C86548F009FDEA3 /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
+		A70802031C865CDF009FDEA3 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		A7ACD35C1C860B5800B64E33 /* TextShooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextShooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7ACD35F1C860B5800B64E33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7ACD3611C860B5800B64E33 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				A7ACD36C1C860B5800B64E33 /* LaunchScreen.storyboard */,
 				A7ACD36F1C860B5800B64E33 /* Info.plist */,
 				A70802011C86548F009FDEA3 /* PlayerNode.swift */,
+				A70802031C865CDF009FDEA3 /* Geometry.swift */,
 			);
 			path = TextShooter;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				A7ACD3661C860B5800B64E33 /* GameViewController.swift in Sources */,
 				A70802021C86548F009FDEA3 /* PlayerNode.swift in Sources */,
 				A7ACD3601C860B5800B64E33 /* AppDelegate.swift in Sources */,
+				A70802041C865CDF009FDEA3 /* Geometry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
