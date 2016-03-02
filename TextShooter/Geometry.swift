@@ -27,7 +27,7 @@ class Geometry
     
     // Takes a CGVector
     // Returns a CGFloat containing the length of the vector
-    static func vectoryLength(v:CGVector) -> CGFloat
+    static func vectorLength(v:CGVector) -> CGFloat
     {
         return CGFloat(sqrtf(powf(Float(v.dx), 2.0) + powf(Float(v.dy), 2.0)))
     }
