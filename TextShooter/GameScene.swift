@@ -98,7 +98,10 @@ class GameScene: SKScene
     
     override func update(currentTime: CFTimeInterval)
     {
+        if finished { return; }
         updateBullets()
+        updateEnemies()
+        checkForNextLevel()
     }
     
     private func updateBullets()
@@ -133,5 +136,46 @@ class GameScene: SKScene
             enemy.position = CGPointMake(CGFloat(x), CGFloat(y))
             enemies.addChild(enemy)
         }
+    }
+    
+    private func updateEnemies()
+    {
+        var enemiesToRemove:[EnemyNode] = []
+        for node in enemies.children as! [EnemyNode]
+        {
+            if(!CGRectContainsPoint(frame, node.position))
+            {
+                // Mark enemy for removal
+                enemiesToRemove.append(node)
+                continue
+            }
+        }
+        
+        enemies.removeChildrenInArray(enemiesToRemove)
+    }
+    
+    private func checkForNextLevel()
+    {
+        if enemies.children.isEmpty
+        {
+            goToNextLevel()
+        }
+    }
+    
+    private func goToNextLevel()
+    {
+        finished = true
+        
+        let label = SKLabelNode(fontNamed: "Courier")
+        label.text = "Level Complete!"
+        label.fontColor = SKColor.blueColor()
+        label.fontSize = 32
+        label.position = CGPointMake(frame.size.width * 0.5, frame.size.height * 0.5)
+        
+        addChild(label)
+        
+        let nextLevel = GameScene(size: frame.size, levelNumber: levelNumber + 1)
+        nextLevel.playerLives = playerLives
+        view!.presentScene(nextLevel, transition: SKTransition.flipHorizontalWithDuration(1.0))
     }
 }
