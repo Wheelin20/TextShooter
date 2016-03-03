@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0AA0B9621C87CC7F008626D2 /* SKNode+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0B9611C87CC7F008626D2 /* SKNode+Extra.swift */; };
+		0AA0B9691C87E6C2008626D2 /* MissileExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0B9671C87E6C2008626D2 /* MissileExplosion.sks */; };
+		0AA0B96A1C87E6C2008626D2 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0B9681C87E6C2008626D2 /* spark.png */; };
+		0AA0B96C1C87E92E008626D2 /* EnemyExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0B96B1C87E92E008626D2 /* EnemyExplosion.sks */; };
 		A70802021C86548F009FDEA3 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70802011C86548F009FDEA3 /* PlayerNode.swift */; };
 		A70802041C865CDF009FDEA3 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70802031C865CDF009FDEA3 /* Geometry.swift */; };
 		A7556CB61C868D3900BF7316 /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7556CB51C868D3900BF7316 /* EnemyNode.swift */; };
@@ -43,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		0AA0B9611C87CC7F008626D2 /* SKNode+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extra.swift"; sourceTree = "<group>"; };
+		0AA0B9671C87E6C2008626D2 /* MissileExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MissileExplosion.sks; sourceTree = "<group>"; };
+		0AA0B9681C87E6C2008626D2 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		0AA0B96B1C87E92E008626D2 /* EnemyExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EnemyExplosion.sks; sourceTree = "<group>"; };
 		A70802011C86548F009FDEA3 /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		A70802031C865CDF009FDEA3 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		A7556CB51C868D3900BF7316 /* EnemyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
@@ -116,6 +122,9 @@
 				A7ACD3611C860B5800B64E33 /* GameScene.sks */,
 				A7ACD3631C860B5800B64E33 /* GameScene.swift */,
 				A7ACD36C1C860B5800B64E33 /* LaunchScreen.storyboard */,
+				0AA0B9671C87E6C2008626D2 /* MissileExplosion.sks */,
+				0AA0B96B1C87E92E008626D2 /* EnemyExplosion.sks */,
+				0AA0B9681C87E6C2008626D2 /* spark.png */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -287,9 +296,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7ACD3621C860B5800B64E33 /* GameScene.sks in Resources */,
+				0AA0B96A1C87E6C2008626D2 /* spark.png in Resources */,
 				A7ACD36E1C860B5800B64E33 /* LaunchScreen.storyboard in Resources */,
 				A7ACD36B1C860B5800B64E33 /* Assets.xcassets in Resources */,
+				0AA0B96C1C87E92E008626D2 /* EnemyExplosion.sks in Resources */,
 				A7ACD3691C860B5800B64E33 /* Main.storyboard in Resources */,
+				0AA0B9691C87E6C2008626D2 /* MissileExplosion.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

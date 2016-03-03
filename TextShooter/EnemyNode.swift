@@ -35,6 +35,12 @@ class EnemyNode: SKNode
         let force = Geometry.vectorMultiply(attacker.physicsBody!.velocity, m: contact.collisionImpulse)
         let myContact = scene!.convertPoint(contact.contactPoint, toNode: self)
         physicsBody!.applyForce(force, atPoint: myContact)
+        
+        let path = NSBundle.mainBundle().pathForResource("MissileExplosion", ofType: "sks")
+        let explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as! SKEmitterNode
+        explosion.numParticlesToEmit = 20
+        explosion.position = contact.contactPoint
+        scene!.addChild(explosion)
     }
     
     private func initNodeGraph()
