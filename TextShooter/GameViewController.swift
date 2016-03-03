@@ -16,7 +16,8 @@ class GameViewController: UIViewController
     {
         super.viewDidLoad()
         
-        let scene:GameScene = GameScene(size: view.frame.size, levelNumber: 1)
+        // let scene:GameScene = GameScene(size: view.frame.size, levelNumber: 1)
+        let scene:StartScene = StartScene(size: view.frame.size)
         
         // Configure the view.
         let skView = self.view as! SKView
