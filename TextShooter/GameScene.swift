@@ -12,6 +12,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate
 {
     private var levelNumber:UInt
     private var playerLives:Int
+    {
+        didSet
+        {
+            let lives = childNodeWithName("LivesLabel") as! SKLabelNode
+            lives.text = "Lives: \(playerLives)"
+        }
+    }
     private var finished = false
     private let playerNode:PlayerNode = PlayerNode()
     private let enemies = SKNode()
