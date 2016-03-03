@@ -114,7 +114,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             let nodeA = contact.bodyA.node
             let nodeB = contact.bodyB.node
             
-            // what do we do with these nodes?
+            nodeA?.friendlyBumpFrom(nodeB!)
+            nodeB?.friendlyBumpFrom(nodeA!)
         }
         else
         {
@@ -139,7 +140,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                 playerLives--
             }
             
-            // What do we do with the attacker and the attackee?
+            attackee.receiveAttacker(attacker, contact: contact)
+            playerBullets.removeChildrenInArray([attacker])
+            enemies.removeChildrenInArray([attacker])
         }
     }
     
