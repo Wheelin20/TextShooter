@@ -24,6 +24,19 @@ class EnemyNode: SKNode
         super.init(coder: aDecoder)
     }
     
+    override func friendlyBumpFrom(node: SKNode)
+    {
+        physicsBody!.affectedByGravity = true
+    }
+    
+    override func receiveAttacker(attacker: SKNode, contact: SKPhysicsContact)
+    {
+        physicsBody!.affectedByGravity = true
+        let force = Geometry.vectorMultiply(attacker.physicsBody!.velocity, m: contact.collisionImpulse)
+        let myContact = scene!.convertPoint(contact.contactPoint, toNode: self)
+        physicsBody!.applyForce(force, atPoint: myContact)
+    }
+    
     private func initNodeGraph()
     {
         let topRow = SKLabelNode(fontNamed: "Courier-Bold")
