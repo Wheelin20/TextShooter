@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene
+class GameScene: SKScene, SKPhysicsContactDelegate
 {
     private var levelNumber:UInt
     private var playerLives:Int
@@ -62,6 +62,9 @@ class GameScene: SKScene
         spawnEnemies()
         
         addChild(playerBullets)
+        
+        physicsWorld.gravity = CGVectorMake(0, -1)
+        physicsWorld.contactDelegate = self
     }
 
     required init?(coder aDecoder: NSCoder)
@@ -102,6 +105,42 @@ class GameScene: SKScene
         updateBullets()
         updateEnemies()
         checkForNextLevel()
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact)
+    {
+        if contact.bodyA.categoryBitMask == contact.bodyB.categoryBitMask
+        {
+            let nodeA = contact.bodyA.node
+            let nodeB = contact.bodyB.node
+            
+            // what do we do with these nodes?
+        }
+        else
+        {
+            var attacker:SKNode
+            var attackee:SKNode
+            
+            if(contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask)
+            {
+                // Body A is attacking Body B
+                attacker = contact.bodyA.node!
+                attackee = contact.bodyB.node!
+            }
+            else
+            {
+                // Body B is attacking Body A
+                attacker = contact.bodyB.node!
+                attackee = contact.bodyA.node!
+            }
+            
+            if attackee is PlayerNode
+            {
+                playerLives--
+            }
+            
+            // What do we do with the attacker and the attackee?
+        }
     }
     
     private func updateBullets()
