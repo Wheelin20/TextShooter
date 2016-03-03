@@ -111,7 +111,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         if finished { return; }
         updateBullets()
         updateEnemies()
-        checkForNextLevel()
+        if(!checkForGameOver())
+        {
+            checkForNextLevel()
+        }
     }
     
     func didBeginContact(contact: SKPhysicsContact)
@@ -211,6 +214,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         }
     }
     
+    private func checkForGameOver() -> Bool
+    {
+        if playerLives == 0
+        {
+            triggerGameOver()
+            return true
+        }
+        
+        return false
+    }
+    
     private func goToNextLevel()
     {
         finished = true
@@ -226,5 +240,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         let nextLevel = GameScene(size: frame.size, levelNumber: levelNumber + 1)
         nextLevel.playerLives = playerLives
         view!.presentScene(nextLevel, transition: SKTransition.flipHorizontalWithDuration(1.0))
+    }
+    
+    private func triggerGameOver()
+    {
+        finished = true
+        let path = NSBundle.mainBundle().pathForResource("EnemyExplosion", ofType: "sks")
+        let explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as! SKEmitterNode
+        explosion.numParticlesToEmit = 200
+        explosion.position = playerNode.position
+        scene!.addChild(explosion)
+        playerNode.removeFromParent()
+        
+        let transition = SKTransition.doorsOpenVerticalWithDuration(1)
+        let gameOver = GameOverScene(size: frame.size)
+        view!.presentScene(gameOver, transition: transition)
     }
 }
