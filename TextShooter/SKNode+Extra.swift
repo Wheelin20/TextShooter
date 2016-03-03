@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import SpriteKit
+
+extension SKNode
+{
+    func receiveAttacker(attacker:SKNode, contact: SKPhysicsContact)
+    {
+        // Default implementation does nothing
+    }
+    
+    func friendlyBumpFrom(node: SKNode)
+    {
+        // Default implementation does nothing
+    }
+}
