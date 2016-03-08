@@ -28,6 +28,7 @@ class BulletNode: SKNode
         body.categoryBitMask = PlayerMissleCategory
         body.contactTestBitMask = EnemyCategory
         body.collisionBitMask = EnemyCategory
+        body.fieldBitMask = GravityFieldCategory
         body.mass = 0.01
         
         physicsBody = body

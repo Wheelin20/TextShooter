@@ -24,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     private let playerNode:PlayerNode = PlayerNode()
     private let enemies = SKNode()
     private let playerBullets = SKNode()
+    private let forceFields = SKNode()
     private let shotSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("shoot", ofType: "wav")!)
     private var audioPlayer:AVAudioPlayer?
     
@@ -72,6 +73,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         spawnEnemies()
         
         addChild(playerBullets)
+        
+        addChild(forceFields)
+        createForceFields()
         
         physicsWorld.gravity = CGVectorMake(0, -1)
         physicsWorld.contactDelegate = self
@@ -175,6 +179,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             attackee.receiveAttacker(attacker, contact: contact)
             playerBullets.removeChildrenInArray([attacker])
             enemies.removeChildrenInArray([attacker])
+        }
+    }
+    
+    private func createForceFields()
+    {
+        let fieldCount = 3
+        let size = frame.size
+        let sectionWidth = Int(size.width)/fieldCount
+        for var i = 0; i < fieldCount; i++
+        {
+            let x = CGFloat(UInt32(i * sectionWidth) + arc4random_uniform(UInt32(sectionWidth)))
+            let y = CGFloat(arc4random_uniform(UInt32(size.height * 0.25)) + UInt32(size.height * 0.25))
+            
+            let gravityField = SKFieldNode.radialGravityField()
+            gravityField.position = CGPointMake(x, y)
+            gravityField.categoryBitMask = GravityFieldCategory
+            gravityField.strength = 4
+            gravityField.falloff = 2
+            gravityField.region = SKRegion(size: CGSizeMake(size.width * 0.3, size.height * 0.1))
+            
+            forceFields.addChild(gravityField)
+            
+            let fieldLocationNode = SKLabelNode(fontNamed: "Courier")
+            fieldLocationNode.fontSize = 16
+            fieldLocationNode.fontColor = SKColor.redColor()
+            fieldLocationNode.name = "GravityField"
+            fieldLocationNode.text = "*"
+            fieldLocationNode.position = CGPointMake(x, y)
+            forceFields.addChild(fieldLocationNode)
         }
     }
     

@@ -76,6 +76,7 @@ class PlayerNode: SKNode
         body.categoryBitMask = PlayerCategory
         body.contactTestBitMask = EnemyCategory
         body.collisionBitMask = 0
+        body.fieldBitMask = 0
         physicsBody = body
     }
 }
