@@ -32,6 +32,8 @@ class PlayerNode: SKNode
         explosion.numParticlesToEmit = 50
         explosion.position = contact.contactPoint
         scene!.addChild(explosion)
+        
+        runAction(SKAction.playSoundFileNamed("playerHit.wav", waitForCompletion: false))
     }
     
     private func initNodeGraph()

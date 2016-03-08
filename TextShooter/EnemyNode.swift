@@ -41,6 +41,8 @@ class EnemyNode: SKNode
         explosion.numParticlesToEmit = 20
         explosion.position = contact.contactPoint
         scene!.addChild(explosion)
+        
+        runAction(SKAction.playSoundFileNamed("enemyHit.wav", waitForCompletion: false))
     }
     
     private func initNodeGraph()

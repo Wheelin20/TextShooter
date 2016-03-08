@@ -57,8 +57,7 @@ class BulletNode: SKNode
     
     class func bullet(from start:CGPoint, toward destination: CGPoint) -> BulletNode
     {
-        let bullet = BulletNode()
-        
+        let bullet = BulletNode()        
         bullet.position = start
         let movement = Geometry.vectorBetweenPoints(start, p2: destination)
         let magnitude = Geometry.vectorLength(movement)

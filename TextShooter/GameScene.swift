@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate
 {
@@ -23,6 +24,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     private let playerNode:PlayerNode = PlayerNode()
     private let enemies = SKNode()
     private let playerBullets = SKNode()
+    private let shotSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("shoot", ofType: "wav")!)
+    private var audioPlayer:AVAudioPlayer?
     
     class func scene(size:CGSize, levelNumber:UInt) -> GameScene
     {
@@ -73,6 +76,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         physicsWorld.gravity = CGVectorMake(0, -1)
         physicsWorld.contactDelegate = self
     }
+    
+    override func didMoveToView(view: SKView)
+    {
+        super.didMoveToView(view)
+        do
+        {
+            try audioPlayer = AVAudioPlayer(contentsOfURL: shotSound)
+            audioPlayer?.prepareToPlay()
+        }
+        catch
+        {
+            print("No shot sound")
+        }
+    }
 
     required init?(coder aDecoder: NSCoder)
     {
@@ -100,6 +117,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             }
             else
             {
+                //runAction(SKAction.playSoundFileNamed("shoot.wav", waitForCompletion: false))
+                if let player = audioPlayer
+                {
+                    player.play();
+                }
                 let bullet = BulletNode.bullet(from: playerNode.position, toward: location)
                 playerBullets.addChild(bullet)
             }
@@ -255,5 +277,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         let transition = SKTransition.doorsOpenVerticalWithDuration(1)
         let gameOver = GameOverScene(size: frame.size)
         view!.presentScene(gameOver, transition: transition)
+        
+        runAction(SKAction.playSoundFileNamed("gameOver.wav", waitForCompletion: false))
     }
 }
